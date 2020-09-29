@@ -7,12 +7,18 @@ twoButtons.java   servlet example
 ********************************************************************* */
 
 //Import Java Libraries
-import java.io.*;
-import java.util.*;
+import java.io.PrintWriter;
+import java.io.IOException;
 
-//Import Servlet Libraries
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//David: (1) adds servlet mapping annotation
+import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "inClassTwo", urlPatterns = {"/inClassTwo"} )
 //twoButtons class
 //CONSTRUCTOR: no constructor specified (default)
