@@ -29,13 +29,13 @@ import javax.servlet.http.*;
 //private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-public class inClass2 extends HttpServlet
+public class InClassTwo extends HttpServlet
 {
 
 //Location of servlet.
 static String Domain  = "cs.gmu.edu:8443";
-static String Path    = "/offutt/servlet/inClass2";
-static String Servlet = "inClass2";
+static String Path    = "/offutt/servlet/";
+static String Servlet = "InClassTwo";
 
 //Button labels
 static String OperationConcat1 = "Concat 1";
