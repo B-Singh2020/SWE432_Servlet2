@@ -39,8 +39,8 @@ public class InClassTwo extends HttpServlet
 {
 
 //Location of servlet.
-static String Domain  = "";
-static String Path    = "";
+static String Domain  = "swe432-servlet2.herokuapp.com";
+static String Path    = "/";
 static String Servlet = "inClassTwo";
 
 //Button labels
