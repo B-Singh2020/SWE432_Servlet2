@@ -35,7 +35,7 @@ public class InClassTwo extends HttpServlet
 //Location of servlet.
 static String Domain  = "";
 static String Path    = "/";
-static String Servlet = "InClassTwo";
+static String Servlet = "inClassTwo";
 
 //Button labels
 static String OperationConcat1 = "Concat 1";
