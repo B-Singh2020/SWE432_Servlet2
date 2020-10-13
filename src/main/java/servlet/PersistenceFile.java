@@ -84,7 +84,7 @@ public class PersistenceFile extends HttpServlet{
 
      if (error.length() == 0){
        PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+major);
        entriesPrintWriter.close();
 
        PrintHead(out);
