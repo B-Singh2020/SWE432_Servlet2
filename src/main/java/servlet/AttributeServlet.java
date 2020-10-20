@@ -9,9 +9,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.Enumeration;
 
-@WebServlet(
-        name = "attribute",
-        urlPatterns = {"/attribute"}
+
     )
 public class AttributeServlet extends HttpServlet
 {
@@ -55,7 +53,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("Enter name and value of an attribute");
 
    //String url = response.encodeURL ("servlet/attributeServlet");
-  // String url = response.encodeURL("attributeServlet");
+   String url = response.encodeURL("/attribute");
    out.println("<form action=\"" + url + "\" method=\"GET\">");
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
