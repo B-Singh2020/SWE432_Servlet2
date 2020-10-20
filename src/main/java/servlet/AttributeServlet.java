@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.Enumeration;
 
 
-    )
+    
 public class AttributeServlet extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
