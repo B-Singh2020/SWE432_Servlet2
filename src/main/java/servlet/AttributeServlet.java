@@ -83,8 +83,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    {
       String att_name  = (String) e.nextElement();
       String att_value = (String) session.getAttribute(att_name);
-      String att_food = (String) session.getAttribute(att_food);
-      String att_drink = (String) session.getAttribute(att_drink);
+      String att_food = (String) session.getAttribute(att_name);
+      String att_drink = (String) session.getAttribute(att_name);
       
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
