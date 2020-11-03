@@ -252,7 +252,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"\n" + 
 				"\n" + 
 				"\n" + 
-				"  <form class=\"form\" name=\"form1\" method=\"post\" action=\"https://cs.gmu.edu:8443/offutt/servlet/formHandler\">\n" + 
+				"  <form class=\"form\" name=\"form1\" method=\"post\" >\n" + 
 				"\n" + 
 				"\n" + 
 				"    <table id=\"var_T\" border=\"0\" cellpadding=\"2\" cellspacing=\"1\" width=\"60%\" class=\"center\">\n" + 
