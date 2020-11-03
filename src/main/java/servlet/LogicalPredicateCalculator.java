@@ -318,7 +318,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		String val1 = "";
 		if(val1.isEmpty())
 		{
-			String val1 = request.getParameter("ops1");
+			 val1 = request.getParameter("ops1");
 		}
 		else {
 			val1 = val1 + request.getParameter("ops1");
