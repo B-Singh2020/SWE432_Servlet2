@@ -164,8 +164,8 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        variable = row.insertCell(-1);\n" + 
 				"\n" + 
 				"        if (varCount != 1) {\n" + 
-				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops1\"  \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
-				"       opCount++;\n" + 
+				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops1\" +  \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
+				"       \n" + 
 				"       }\n" + 
 				"       \n" + 
 				"        variable.innerHTML = \" <td width=\\\"24%\\\" colspan=\\\"3\\\"><input  name=\\\"v\" + variableNameCount + \"\\\" id=\\\"v\" + variableNameCount + \"\\\" type=\\\"text\\\" size=\\\"5\\\" value = \" + value + \" readonly=\\\"readonly\\\" style=\\\"background-color:#8c8c8c;\\\"></td>;\"\n" + 
