@@ -164,7 +164,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        variable = row.insertCell(-1);\n" + 
 				"\n" + 
 				"        if (varCount != 1) {\n" + 
-				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops1\" \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
+				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops\" + opCount + \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
 				"       opCount++;\n" + 
 				"       }\n" + 
 				"       \n" + 
@@ -315,11 +315,14 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   throws ServletException, IOException
 	{
-		String val1 = request.getParameter("ops1");;
-		String val2 = request.getParameter("Inputted");
+		String val1 = request.getParameter("ops0");
+		String val2 = request.getParameter("ops1");
+		String val3 = request.getParameter("ops2");
+		String val4 = request.getParameter("ops3");
+		String val5 = request.getParameter("Inputted");
 		
 		response.setContentType("text/html");
 		   PrintWriter out = response.getWriter();
-		   out.println(val1 + val2);
+		   out.println(val1 + val2 + val3 + val4);
 	}
 }  
