@@ -164,7 +164,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        variable = row.insertCell(-1);\n" + 
 				"\n" + 
 				"        if (varCount != 1) {\n" + 
-				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops\" + opCount + \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
+				"          operator.innerHTML = \"<td>  <select type=\\\"text\\\" name=\\\"ops1\" \"\\\" id=\\\"ops\" + opCount + \"\\\"> <option value=\\\"and\\\">and</option> <option value=\\\"or\\\">or</option><option value=\\\"xor\\\">xor</option><option value=\\\"------\\\" disabled>------</option><option value=\\\"AMPH\\\">&&</option><option value=\\\"bitOr\\\">||</option><option value=\\\"carrot\\\">^</option></select></td>\"\n" + 
 				"       opCount++;\n" + 
 				"       }\n" + 
 				"       \n" + 
