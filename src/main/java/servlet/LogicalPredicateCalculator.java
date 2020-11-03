@@ -300,7 +300,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"      </tbody>\n" + 
 				"    </table>\n" + 
 				"    <p class=\"error-text\" id=\"varErrorMessage\"> </p>\n" + 
-				"    <input type=\"submit\" id=\"submit\" onclick=\"getOps()\" disabled>\n" + 
+				"    <input type=\"submit\" id=\"submit\" onclick=\"getOps()\" disabled name=\"Inputted\">\n" + 
 				"  </form>\n" + 
 				"\n" + 
 				"\n" + 
@@ -310,5 +310,15 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		out.close();
 	}  // end doGet()
 
-
+	@Override
+	public void doPost (HttpServletRequest request, HttpServletResponse response)
+	   throws ServletException, IOException
+	{
+		String val1 = "";
+		String val2 = request.getParameter("Inputted");
+		
+		response.setContentType("text/html");
+		   PrintWriter out = response.getWriter();
+		   out.println(val2);
+	}
 }  
