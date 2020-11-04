@@ -4,16 +4,17 @@ import javax.servlet.http.*; // servlet library
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "LPC", urlPatterns = {"/LPC"})
-
 public class LogicalPredicateCalculator extends HttpServlet // Inheriting from HttpServlet makes this a servlet
 {
 	static String Domain = "swe432-servlet2.herokuapp.com/";
 	static String Path = "/";
 	static String Servlet = "LPC";
+	static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 	public void doGet (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
@@ -118,7 +119,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        title.deleteCell(8);\n" + 
 				"        predS.deleteCell(8);\n" + 
 				"        predS.deleteCell(8);\n" + 
-				"				opCount--;\n" + 
+				"               opCount--;\n" + 
 				"      }\n" + 
 				"\n" + 
 				"    }\n" + 
@@ -225,15 +226,15 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"            getVars();\n" + 
 				"        }\n" + 
 				"        \n" + 
-				"		function getVars(){\n" + 
-				"			var table1 = document.getElementById(\"predicate_table\");\n" + 
+				"       function getVars(){\n" + 
+				"           var table1 = document.getElementById(\"predicate_table\");\n" + 
 				"      var row1 = table1.rows[1];\n" + 
 				"      var cell1 = row1.cells[1]\n" + 
 				"      var list11 = document.getElementById(\"v1\");\n" + 
 				"      var opt = list11.value;\n" + 
 				"      variables.push(opt);\n" + 
 				"      alert(variables[0])\n" + 
-				"		}	\n" + 
+				"       }   \n" + 
 				"\n" + 
 				"\n" + 
 				"    function ClickMe() {\n" + 
@@ -315,21 +316,638 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
-	   throws ServletException, IOException
+			throws ServletException, IOException
 	{
 		String[] val1;
 		val1 = request.getParameterValues("ops1");
-	    String str = Arrays.toString(val1);
-	    
-	    
+		String str = Arrays.toString(val1);
+
+
 		String[] v1 = request.getParameterValues("v1");
 		String str2 = Arrays.toString(v1);
-		
-		 
+
+
 		//String val5 = request.getParameter("Inputted");
-		
+
 		response.setContentType("text/html");
-		   PrintWriter out = response.getWriter();
-		   out.println(str + " " + str2);
+		int varNums = v1.length;
+		if (varNums == 1)
+		{
+			printOneVar(v1,response);
+		}
+
+		else if (varNums == 2)
+		{
+			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			printTwoVars(v1,val1,finalBools,response);
+		}
+		else if (varNums == 3)
+		{
+			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			printThreeVars(v1,val1,finalBools,response);
+		}
+		else if (varNums == 4)
+		{
+			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			printFourVars(v1,val1,finalBools,response);
+		}
+		else if (varNums == 5)
+		{
+			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			printFiveVars(v1,val1,finalBools,response);
+		}
+
+	}
+
+	private void printFiveVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+		PrintWriter out = response.getWriter();	
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "table {\n"
+				+ "  font-family: arial, sans-serif;\n"
+				+ "  border-collapse: collapse;\n"
+				+ "  width: 100%;\n"
+				+ "}\n"
+				+ "\n"
+				+ "td, th {\n"
+				+ "  border: 1px solid #dddddd;\n"
+				+ "  text-align: left;\n"
+				+ "  padding: 8px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "tr:nth-child(even) {\n"
+				+ "  background-color: #dddddd;\n"
+				+ "}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "\n"
+				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "\n"
+				+ "<table>\n"
+				+ "  <tr>\n"
+				+ "    <th>" + vals[0]+"</th>\n"
+				+ "    <th>" + vals[1]+"</th>\n"
+				+ "    <th>" + vals[2]+"</th>\n"
+				+ "    <th>" + vals[3]+"</th>\n"
+				+ "    <th>" + vals[4]+"</th>\n"
+				+ "    <th>" + vals[0]+" "+ops[0]+" "+vals[1]+" "+ops[1]+" "+vals[2]+" "+ops[2]+" "+vals[3]+" "+ops[3]+" "+vals[4]+"</th>\n"
+				+ "  </tr>\n"			
+				
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"	
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"	
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"	
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "</table>\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
+	}
+
+	private void printFourVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+		PrintWriter out = response.getWriter();
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "table {\n"
+				+ "  font-family: arial, sans-serif;\n"
+				+ "  border-collapse: collapse;\n"
+				+ "  width: 100%;\n"
+				+ "}\n"
+				+ "\n"
+				+ "td, th {\n"
+				+ "  border: 1px solid #dddddd;\n"
+				+ "  text-align: left;\n"
+				+ "  padding: 8px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "tr:nth-child(even) {\n"
+				+ "  background-color: #dddddd;\n"
+				+ "}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "\n"
+				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "\n"
+				+ "<table>\n"
+				+ "  <tr>\n"
+				+ "    <th>" + vals[0]+"</th>\n"
+				+ "    <th>" + vals[1]+"</th>\n"
+				+ "    <th>" + vals[2]+"</th>\n"
+				+ "    <th>" + vals[3]+"</th>\n"
+				+ "    <th>" + vals[0]+" "+ops[0]+" "+vals[1]+" "+ops[1]+" "+vals[2]+" "+ops[2]+" "+vals[3]+"</th>\n"
+				+ "  </tr>\n"						
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"	
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"					
+				+ "</table>\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
+	}
+
+	private void printThreeVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+
+		PrintWriter out = response.getWriter();
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "table {\n"
+				+ "  font-family: arial, sans-serif;\n"
+				+ "  border-collapse: collapse;\n"
+				+ "  width: 100%;\n"
+				+ "}\n"
+				+ "\n"
+				+ "td, th {\n"
+				+ "  border: 1px solid #dddddd;\n"
+				+ "  text-align: left;\n"
+				+ "  padding: 8px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "tr:nth-child(even) {\n"
+				+ "  background-color: #dddddd;\n"
+				+ "}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "\n"
+				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "\n"
+				+ "<table>\n"
+				+ "  <tr>\n"
+				+ "    <th>" + vals[0]+"</th>\n"
+				+ "    <th>" + vals[1]+"</th>\n"
+				+ "    <th>" + vals[2]+"</th>\n"
+				+ "    <th>" + vals[0]+" "+ops[0]+" "+vals[1]+" "+ops[1]+" "+vals[2]+"</th>\n"
+				+ "  </tr>\n"			
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"				
+				+ "</table>\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
+	}
+
+	private String[] calculateBooleans(int varNums, String[] v1, String[] val1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void printOneVar(String[] vals, HttpServletResponse response) throws IOException
+	{
+		PrintWriter out = response.getWriter();
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "table {\n"
+				+ "  font-family: arial, sans-serif;\n"
+				+ "  border-collapse: collapse;\n"
+				+ "  width: 100%;\n"
+				+ "}\n"
+				+ "\n"
+				+ "td, th {\n"
+				+ "  border: 1px solid #dddddd;\n"
+				+ "  text-align: left;\n"
+				+ "  padding: 8px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "tr:nth-child(even) {\n"
+				+ "  background-color: #dddddd;\n"
+				+ "}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "\n"
+				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "\n"
+				+ "<table>\n"
+				+ "  <tr>\n"
+				+ "    <th>" + vals[0]+"</th>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  </tr>\n"
+				+ "</table>\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
+	}
+
+	private void printTwoVars(String[] vals,String[] ops, String[] finalBools, HttpServletResponse response) throws IOException
+	{
+		PrintWriter out = response.getWriter();
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "table {\n"
+				+ "  font-family: arial, sans-serif;\n"
+				+ "  border-collapse: collapse;\n"
+				+ "  width: 100%;\n"
+				+ "}\n"
+				+ "\n"
+				+ "td, th {\n"
+				+ "  border: 1px solid #dddddd;\n"
+				+ "  text-align: left;\n"
+				+ "  padding: 8px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "tr:nth-child(even) {\n"
+				+ "  background-color: #dddddd;\n"
+				+ "}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "\n"
+				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "\n"
+				+ "<table>\n"
+				+ "  <tr>\n"
+				+ "    <th>" + vals[0]+"</th>\n"
+				+ "    <th>" + vals[1]+"</th>\n"
+				+ "    <th>" + vals[0]+" "+ops[0]+" "+vals[1]+"</th>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>T</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>T</td>\n"
+				+ "  </tr>\n"
+				+ "  <tr>\n"
+				+ "    <td>F</td>\n"
+				+ "    <td>F</td>\n"
+				+ "  </tr>\n"
+				+ "</table>\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
 	}
 }  
