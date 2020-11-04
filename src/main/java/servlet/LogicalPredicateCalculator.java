@@ -304,7 +304,6 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"    </table>\n" + 
 				"    <p class=\"error-text\" id=\"varErrorMessage\"> </p>\n" + 
 				"    <input type=\"submit\" id=\"submit\"  disabled name=\"Inputted\">\n" + 
-				"    <input type=\"submit\" id=\"submit\"  disabled name=\"Inputted\">\n" +
 				"  </form>\n" + 
 				"\n" + 
 				"\n" + 
