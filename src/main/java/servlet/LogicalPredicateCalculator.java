@@ -328,12 +328,19 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		ArrayList<String> vars = new ArrayList();
 		
 		String[] var = {v1, v2, v3, v4, v5};
-		for (int i = 0; i < 5; i ++)
-		{
-			if(!var[i].isEmpty())
-				vars.add(var[i]);
-		}
-		String str2 = vars.toString();
+		
+			if(!(v1 == null))
+				vars.add(v1);
+			if(!(v2 == null))
+				vars.add(v2);
+			if(!(v3 == null))
+				vars.add(v3);
+			if(!(v4 == null))
+				vars.add(v4);
+			if(!(v5 == null))
+				vars.add(v5);
+		
+		String str2 = vars.toString(); 
 		//String val5 = request.getParameter("Inputted");
 		
 		response.setContentType("text/html");
