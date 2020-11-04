@@ -170,7 +170,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"       \n" + 
 				"       }\n" + 
 				"       \n" + 
-				"        variable.innerHTML = \" <td width=\\\"24%\\\" colspan=\\\"3\\\"><input  name=\\\"v\" + variableNameCount + \"\\\" id=\\\"v\" + variableNameCount + \"\\\" type=\\\"text\\\" size=\\\"5\\\" value = \" + value + \" readonly=\\\"readonly\\\" style=\\\"background-color:#8c8c8c;\\\"></td>;\"\n" + 
+				"        variable.innerHTML = \" <td width=\\\"24%\\\" colspan=\\\"3\\\"><input  name=\\\"v1\" +  \"\\\" id=\\\"v\" + variableNameCount + \"\\\" type=\\\"text\\\" size=\\\"5\\\" value = \" + value + \" readonly=\\\"readonly\\\" style=\\\"background-color:#8c8c8c;\\\"></td>;\"\n" + 
 				"      }\n" + 
 				"      document.getElementById(\"v1\").value = \"\";\n" + 
 				"      submitManager();\n" + 
@@ -320,27 +320,12 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		String[] val1;
 		val1 = request.getParameterValues("ops1");
 	    String str = Arrays.toString(val1);
-		String v1 = request.getParameter("v1");
-		String v2 = request.getParameter("v2");
-		String v3 = request.getParameter("v3");
-		String v4 = request.getParameter("v4");
-		String v5 = request.getParameter("v5");
-		ArrayList<String> vars = new ArrayList();
+	    
+	    
+		String[] v1 = request.getParameterValues("v1");
+		String str2 = Arrays.toString(v1);
 		
-		String[] var = {v1, v2, v3, v4, v5};
-		
-			if(!(v1 == null))
-				vars.add(v1);
-			if(!(v2 == null))
-				vars.add(v2);
-			if(!(v3 == null))
-				vars.add(v3);
-			if(!(v4 == null))
-				vars.add(v4);
-			if(!(v5 == null))
-				vars.add(v5);
-		
-		String str2 = vars.toString(); 
+		 
 		//String val5 = request.getParameter("Inputted");
 		
 		response.setContentType("text/html");
