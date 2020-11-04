@@ -316,16 +316,19 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	   throws ServletException, IOException
 	{
 		String[] val1;
-		
-			 val1 = request.getParameterValues("ops1");
-		
-			 String str = Arrays.toString(val1);
-		
-		
+		val1 = request.getParameterValues("ops1");
+	    String str = Arrays.toString(val1);
+		String v1 = request.getParameter("v1");
+		String v2 = request.getParameter("v2");
+		String v3 = request.getParameter("v3");
+		String v4 = request.getParameter("v4");
+		String v5 = request.getParameter("v5");
+		String[] var = {v1, v2, v3, v4, v5};
+		String str2 = Arrays.toString(var);
 		//String val5 = request.getParameter("Inputted");
 		
 		response.setContentType("text/html");
 		   PrintWriter out = response.getWriter();
-		   out.println(str);
+		   out.println(str + " " + str2);
 	}
 }  
