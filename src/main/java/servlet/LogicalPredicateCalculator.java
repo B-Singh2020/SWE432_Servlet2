@@ -3,6 +3,8 @@ import javax.servlet.*; // servlet library
 import javax.servlet.http.*; // servlet library
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "LPC", urlPatterns = {"/LPC"})
@@ -323,8 +325,15 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		String v3 = request.getParameter("v3");
 		String v4 = request.getParameter("v4");
 		String v5 = request.getParameter("v5");
+		ArrayList<String> vars = new ArrayList();
+		
 		String[] var = {v1, v2, v3, v4, v5};
-		String str2 = Arrays.toString(var);
+		for (int i = 0; i < 5; i ++)
+		{
+			if(!var[i].isEmpty())
+				vars.add(var[i]);
+		}
+		String str2 = vars.toString();
 		//String val5 = request.getParameter("Inputted");
 		
 		response.setContentType("text/html");
