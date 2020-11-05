@@ -199,14 +199,14 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"\n" + 
 				"\n" + 
 				"\n" +
-				"<p style=\"color: white\">To calculate a truth table for a logical predicate, please enter up to 5 variables below.</p>"
+				"<p style=\"font-weight: bold; color: white\">To calculate a truth table for a logical predicate, please enter up to 5 variables below.</p>"
 				+
 				"  <form class=\"form\" name=\"form1\" method=\"post\" >\n" + 
 				"\n" + 
 				"\n" + 
 				"    <table id=\"var_T\" border=\"0\" cellpadding=\"2\" cellspacing=\"1\" width=\"60%\" class=\"center\">\n" + 
 				"      <tr>\n" + 
-				"        <td width=\"60%\" colspan=\"6\" bgcolor=\"#305287\">\n" + 
+				"        <td width=\"60%\" colspan=\"6\" >\n" + 
 				"          <P align=\"center\">\n" + 
 				"            <font color=\"#FFFFFF\"><b>Please Input Variable Names</b></font>\n" + 
 				"          </P>\n" + 
