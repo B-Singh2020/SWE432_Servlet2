@@ -270,6 +270,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	}  // end doGet()
 
 	
+	
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
@@ -343,7 +344,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <th>" + vals[4]+"</th>\n"
 				+ "    <th>" + vals[0]+" "+ops[0]+" "+vals[1]+" "+ops[1]+" "+vals[2]+" "+ops[2]+" "+vals[3]+" "+ops[3]+" "+vals[4]+"</th>\n"
 				+ "  </tr>\n"			
-				
+
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
@@ -860,47 +861,25 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		{
 
 			boolean [] boo = {true,true};
-			for(int i = 0; i<4;i++)
+			for(int i = 1; i<=4;i++)
 			{
-				
+
 				c=0;
-				while (c<ops.length)
+
+				if (ops[0].equals("and") || ops[0].equals("AMPH"))
 				{
-
-					if (c==0)
-					{
-						if (ops[0] == "and" || ops[0]=="AMPH")
-						{
-							answer = boo[0] && boo[1];
-						}
-						else if (ops[0] == "or" || ops[0]=="bitOr")
-						{
-							answer = boo[0] || boo[1];
-						}
-						else if (ops[0] == "xor" || ops[0]=="carrot")
-						{
-							answer = boo[0] ^ boo[1];
-						}
-						
-
-					}
-					else
-					{
-						if (ops[c] == "and" || ops[c]=="AMPH")
-						{
-							answer = answer && boo[c+1];
-						}
-						else if (ops[c] == "or" || ops[c]=="bitOr")
-						{
-							answer = answer || boo[c+1];
-						}
-						else if (ops[c] == "xor" || ops[c]=="carrot")
-						{
-							answer = answer ^ boo[c+1];
-						}
-					}
-					c++;
+					
+					answer = boo[0] && boo[1];
 				}
+				else if (ops[0].equals("or") || ops[0].equals("bitOr"))
+				{
+					answer = boo[0] || boo[1];
+				}
+				else if (ops[0].equals("xor") || ops[0].equals("carrot"))
+				{
+					answer = boo[0] ^ boo[1];
+				}
+
 				if (i%1==0)
 				{
 					boo[1]=!boo[1];
@@ -922,41 +901,42 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		{
 
 			boolean [] boo = {true,true,true};
-			for(int i = 0; i<8;i++)
+			for(int i = 1; i<=8;i++)
 			{
-				
+
 				c=0;
 				while (c<ops.length)
 				{
 
 					if (c==0)
 					{
-						if (ops[0] == "and" || ops[0]=="AMPH")
+						if (ops[0].equals("and") || ops[0].equals("AMPH"))
 						{
+							
 							answer = boo[0] && boo[1];
 						}
-						else if (ops[0] == "or" || ops[0]=="bitOr")
+						else if (ops[0].equals("or") || ops[0].equals("bitOr"))
 						{
 							answer = boo[0] || boo[1];
 						}
-						else if (ops[0] == "xor" || ops[0]=="carrot")
+						else if (ops[0].equals("xor") || ops[0].equals("carrot"))
 						{
 							answer = boo[0] ^ boo[1];
 						}
-						
+
 
 					}
 					else
 					{
-						if (ops[c] == "and" || ops[c]=="AMPH")
+						if (ops[c].equals("and") || ops[c].equals("AMPH"))
 						{
 							answer = answer && boo[c+1];
 						}
-						else if (ops[c] == "or" || ops[c]=="bitOr")
+						else if (ops[c].equals("or") || ops[c].equals("bitOr"))
 						{
 							answer = answer || boo[c+1];
 						}
-						else if (ops[c] == "xor" || ops[c]=="carrot")
+						else if (ops[c].equals("xor") || ops[c].equals("carrot"))
 						{
 							answer = answer ^ boo[c+1];
 						}
@@ -975,7 +955,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				{
 					boo[0]=!boo[0];
 				}
-				
+
 				bools.add(answer);
 			}
 			boolean []answers = new boolean[bools.size()];
@@ -989,41 +969,42 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		{
 
 			boolean [] boo = {true,true,true,true};
-			for(int i = 0; i<16;i++)
+			for(int i = 1; i<=16;i++)
 			{
-				
+
 				c=0;
 				while (c<ops.length)
 				{
 
 					if (c==0)
 					{
-						if (ops[0] == "and" || ops[0]=="AMPH")
+						if (ops[0].equals("and") || ops[0].equals("AMPH"))
 						{
+							
 							answer = boo[0] && boo[1];
 						}
-						else if (ops[0] == "or" || ops[0]=="bitOr")
+						else if (ops[0].equals("or") || ops[0].equals("bitOr"))
 						{
 							answer = boo[0] || boo[1];
 						}
-						else if (ops[0] == "xor" || ops[0]=="carrot")
+						else if (ops[0].equals("xor") || ops[0].equals("carrot"))
 						{
 							answer = boo[0] ^ boo[1];
 						}
-						
+
 
 					}
 					else
 					{
-						if (ops[c] == "and" || ops[c]=="AMPH")
+						if (ops[c].equals("and") || ops[c].equals("AMPH"))
 						{
 							answer = answer && boo[c+1];
 						}
-						else if (ops[c] == "or" || ops[c]=="bitOr")
+						else if (ops[c].equals("or") || ops[c].equals("bitOr"))
 						{
 							answer = answer || boo[c+1];
 						}
-						else if (ops[c] == "xor" || ops[c]=="carrot")
+						else if (ops[c].equals("xor") || ops[c].equals("carrot"))
 						{
 							answer = answer ^ boo[c+1];
 						}
@@ -1059,9 +1040,9 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		{
 
 			boolean [] boo = {true,true,true,true,true};
-			for(int i = 0; i<32;i++)
+			for(int i = 1; i<=32;i++)
 			{
-				
+
 				c=0;
 				while (c<ops.length)
 				{
@@ -1080,20 +1061,20 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 						{
 							answer = boo[0] ^ boo[1];
 						}
-						
+
 
 					}
 					else
 					{
-						if (ops[c] == "and" || ops[c]=="AMPH")
+						if (ops[c].equals("and") || ops[c].equals("AMPH"))
 						{
 							answer = answer && boo[c+1];
 						}
-						else if (ops[c] == "or" || ops[c]=="bitOr")
+						else if (ops[c].equals("or") || ops[c].equals("bitOr"))
 						{
 							answer = answer || boo[c+1];
 						}
-						else if (ops[c] == "xor" || ops[c]=="carrot")
+						else if (ops[c].equals("xor") || ops[c].equals("carrot"))
 						{
 							answer = answer ^ boo[c+1];
 						}
@@ -1130,7 +1111,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 			return  answers;
 		}
 		return null;
-		
+
 	}
 
 	private void printOneVar(String[] vals, HttpServletResponse response) throws IOException
@@ -1239,3 +1220,4 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 }  
+ 
