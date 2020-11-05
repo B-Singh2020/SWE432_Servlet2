@@ -207,7 +207,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        <td width=\"60%\" colspan=\"6\" >\n" + 
 				"          <P align=\"center\">\n" + 
 				"            <font color=\"#FFFFFF\"><b>To calculate a truth table for a logical predicate, please enter up to 5 variables below</b></font>\n" + 
-				"			 <font color=\"#FFFFFF\">Variables must not contain spaces or be longer than six characters </font> " +
+				"			 <font color=\"#FFFFFF\" size=\"4\"><b>Variables must not contain spaces or be longer than six characters </b></font> " +
 				"          </P>\n" + 
 							
 				"        </td>\n" + 
