@@ -259,7 +259,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"    <p class=\"error-text\" id=\"varErrorMessage\"> </p>\n" + 
 				      "<p>&nbsp;</p>" + 
 				"    <input type=\"submit\" id=\"submit\"  disabled name=\"Inputted\">\n" + 
-				"<button onclick=\"ColabSummary()\"> Collab Summary</button>"	+
+				"<button type=\"button\" class=\"btn btn-primary\" onclick=\"ColabSummary()\"> Collab Summary</button>"	+
 				"  </form>\n" + 
 				"\n" + 
 				"\n" + 
