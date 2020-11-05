@@ -844,7 +844,39 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	}
 
 	private String[] calculateBooleans(int varNums, String[] v1, String[] val1) {
-		// TODO Auto-generated method stub
+		int a = 1;
+		int b = 1;
+		int c = 1;
+		int d = 1;
+		int e = 1;
+
+		if(varNums == 1)
+		{
+			String[] ans= new String[2];
+			ans[0] = "T";
+			ans[1] = "F";
+		}
+		else if(varNums == 2 )
+		{
+			for(int i = 0; i < 2; i++)
+			{
+				
+			}
+			
+			
+		}
+		else if(varNums == 3 )
+		{
+			
+		}
+		else if(varNums == 4 )
+		{
+			
+		}
+		else if(varNums == 5 )
+		{
+			
+		}
 		return null;
 	}
 
@@ -871,7 +903,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "}\n"
 				+ "</style>\n"
 				+ "</head>\n"
-				+ "<body style=\"background-color:#021d3b ;"+ ">\n"
+				+ "<body style=\"background-color:#021d3b;\">\n"
 				+ "\n"
 				+ "<h2>Logical Predicate Table</h2>\n"
 				+ "\n"
