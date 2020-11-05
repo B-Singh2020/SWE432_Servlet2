@@ -178,64 +178,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"      submitManager();\n" + 
 				"    }\n" + 
 				"\n" + 
-				" function getOps() {\n" + 
-				"            //alert(\"lol\");\n" + 
-				"            var table1 = document.getElementById(\"predicate_table\");\n" + 
-				"            var row1 = table1.rows[1];\n" + 
-				"            var cell1 = row1.cells[2]\n" + 
-				"\n" + 
-				"            if (document.getElementById(\"ops0\")) {\n" + 
-				"                var list11 = document.getElementById(\"ops0\");\n" + 
-				"                var opt = list11.options[list11.selectedIndex];\n" + 
-				"                logicOps.push(opt.value);\n" + 
-				"            }\n" + 
-				"            try {\n" + 
-				"                if (document.getElementById(\"ops1\")) {\n" + 
-				"                    var list11 = document.getElementById(\"ops1\");\n" + 
-				"                    var opt = list11.options[list11.selectedIndex];\n" + 
-				"                    logicOps.push(opt.value)\n" + 
-				"                }\n" + 
-				"            }\n" + 
-				"            catch (err) {\n" + 
-				"\n" + 
-				"            }\n" + 
-				"\n" + 
-				"            try {\n" + 
-				"                if (document.getElementById(\"ops2\")) {\n" + 
-				"                    var list11 = document.getElementById(\"ops2\");\n" + 
-				"                    var opt = list11.options[list11.selectedIndex];\n" + 
-				"                    logicOps.push(opt.value)\n" + 
-				"                }\n" + 
-				"            }\n" + 
-				"            catch (err) {\n" + 
-				"\n" + 
-				"            }\n" + 
-				"\n" + 
-				"            try {\n" + 
-				"                if (document.getElementById(\"ops3\")) {\n" + 
-				"                    var list11 = document.getElementById(\"ops3\");\n" + 
-				"                    var opt = list11.options[list11.selectedIndex];\n" + 
-				"                    logicOps.push(opt.value)\n" + 
-				"                }\n" + 
-				"            }\n" + 
-				"            catch (err) {\n" + 
-				"\n" + 
-				"            }\n" + 
-				"\n" + 
-				"\n" + 
-				"            alert(logicOps.toString());\n" + 
-				"            getVars();\n" + 
-				"        }\n" + 
-				"        \n" + 
-				"       function getVars(){\n" + 
-				"           var table1 = document.getElementById(\"predicate_table\");\n" + 
-				"      var row1 = table1.rows[1];\n" + 
-				"      var cell1 = row1.cells[1]\n" + 
-				"      var list11 = document.getElementById(\"v1\");\n" + 
-				"      var opt = list11.value;\n" + 
-				"      variables.push(opt);\n" + 
-				"      alert(variables[0])\n" + 
-				"       }   \n" + 
+				
 				"\n" + 
 				"\n" + 
 				"    function ClickMe() {\n" + 
@@ -256,7 +199,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"\n" + 
 				"\n" + 
 				"\n" +
-				"<p>To calculate a truth table for a logical predicate, please enter up to 5 variables below.</p>"
+				"<p style=\\\"color: white\\\">To calculate a truth table for a logical predicate, please enter up to 5 variables below.</p>"
 				+
 				"  <form class=\"form\" name=\"form1\" method=\"post\" >\n" + 
 				"\n" + 
