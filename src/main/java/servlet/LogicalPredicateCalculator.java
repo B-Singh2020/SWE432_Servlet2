@@ -270,7 +270,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	}  // end doGet()
 
 	
-	
+
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
@@ -1049,15 +1049,16 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 					if (c==0)
 					{
-						if (ops[0] == "and" || ops[0]=="AMPH")
+						if (ops[0].equals("and") || ops[0].equals("AMPH"))
 						{
+							
 							answer = boo[0] && boo[1];
 						}
-						else if (ops[0] == "or" || ops[0]=="bitOr")
+						else if (ops[0].equals("or") || ops[0].equals("bitOr"))
 						{
 							answer = boo[0] || boo[1];
 						}
-						else if (ops[0] == "xor" || ops[0]=="carrot")
+						else if (ops[0].equals("xor") || ops[0].equals("carrot"))
 						{
 							answer = boo[0] ^ boo[1];
 						}
@@ -1220,4 +1221,5 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 }  
+ 
  
