@@ -215,7 +215,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"      <tr>\n" + 
 				"        <td width=\"60%\" colspan=\"6\" >\n" + 
 				"          <P align=\"center\">\n" + 
-				"			 <font color=\"#FFFFFF\" size=\"1\"><b>Variables must not contain spaces or be longer than six characters </b></font> " +
+				"			 <font color=\"#FFFFFF\" size=\"2\"><b>Variables must not contain spaces or be longer than six characters </b></font> " +
 				"          </P>\n" + 
 							
 				"        </td>\n" + 
@@ -259,6 +259,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"    <p class=\"error-text\" id=\"varErrorMessage\"> </p>\n" + 
 				      "<p>&nbsp;</p>" + 
 				"    <input type=\"submit\" id=\"submit\"  disabled name=\"Inputted\">\n" + 
+				"<button> Collab Summary</button>"	+
 				"  </form>\n" + 
 				"\n" + 
 				"\n" + 
