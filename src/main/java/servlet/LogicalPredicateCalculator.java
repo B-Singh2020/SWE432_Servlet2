@@ -336,7 +336,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "</head>\n"
 				+ "<body style=\"background-color:#021d3b ; \">\n"
 				+ "\n"
-				+ "<h2>Logical Predicate Table</h2>\n"
+				+ "<h2 color=\"#FFFFFF\">Logical Predicate Table</h2>\n"
 				+ "\n"
 				+ "<table>\n"
 				+ "  <tr>\n"
