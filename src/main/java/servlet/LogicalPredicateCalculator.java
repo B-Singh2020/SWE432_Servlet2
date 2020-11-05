@@ -351,17 +351,17 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		else if (varNums == 4)
 		{
 			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
-			printFourVars(v1,val1,finalBools,response);
+			printFourVars(v1,val1, finalBools,response);
 		}
 		else if (varNums == 5)
 		{
-			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printFiveVars(v1,val1,finalBools,response);
 		}
 
 	}
 
-	private void printFiveVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+	private void printFiveVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();	
 		out.println("<html>\n"
 				+ "<head>\n"
@@ -628,7 +628,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printFourVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+	private void printFourVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
 				+ "<head>\n"
