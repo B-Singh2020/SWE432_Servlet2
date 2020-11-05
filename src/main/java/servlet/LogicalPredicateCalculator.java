@@ -207,7 +207,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"        <td width=\"60%\" colspan=\"6\" >\n" + 
 				"          <P align=\"center\">\n" + 
 				"            <font color=\"#FFFFFF\"><b>To calculate a truth table for a logical predicate, please enter up to 5 variables below</b></font>\n" + 
-				"<p>Variables must not contain spaces or be longer than six characters </p> " +
+				"			 <font color=\"#FFFFFF\">Variables must not contain spaces or be longer than six characters </font> " +
 				"          </P>\n" + 
 							
 				"        </td>\n" + 
@@ -260,20 +260,14 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		out.close();
 	}  // end doGet()
 
+	
 	@Override
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
 		String[] val1;
 		val1 = request.getParameterValues("ops1");
-		String str = Arrays.toString(val1);
-
-
 		String[] v1 = request.getParameterValues("v1");
-		String str2 = Arrays.toString(v1);
-
-
-		//String val5 = request.getParameter("Inputted");
 
 		response.setContentType("text/html");
 		int varNums = v1.length;
@@ -284,28 +278,28 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 		else if (varNums == 2)
 		{
-			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
+			boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printTwoVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 3)
 		{
-			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
+			boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printThreeVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 4)
 		{
-			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
-			printFourVars(v1,val1, finalBools,response);
+			boolean[] finalBools = calculateBooleans(varNums, v1,val1);
+			printFourVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 5)
 		{
-			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
+			boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printFiveVars(v1,val1,finalBools,response);
 		}
 
 	}
 
-	private void printFiveVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
+	private void printFiveVars(String[] vals, String[] ops, boolean[] finalBools, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();	
 		out.println("<html>\n"
 				+ "<head>\n"
@@ -347,6 +341,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[0]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -354,6 +349,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[1]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -361,6 +357,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[2]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -368,6 +365,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[3]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -375,6 +373,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[4]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -382,6 +381,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[5]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -389,6 +389,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[6]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -396,6 +397,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[7]+"</td>\n"
 				+ "  </tr>\n"	
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -403,6 +405,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[8]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -410,6 +413,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[9]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -417,6 +421,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[10]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -424,6 +429,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[11]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -431,6 +437,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[12]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -438,6 +445,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[13]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -445,6 +453,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[14]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
@@ -452,6 +461,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[15]+"</td>\n"
 				+ "  </tr>\n"	
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -459,6 +469,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[16]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -466,6 +477,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[17]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -473,6 +485,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[18]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -480,6 +493,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[19]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -487,6 +501,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[20]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -494,6 +509,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[21]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -501,6 +517,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[22]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -508,6 +525,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[23]+"</td>\n"
 				+ "  </tr>\n"	
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -515,6 +533,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[24]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -522,6 +541,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[25]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -529,6 +549,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[26]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -536,6 +557,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[27]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -543,6 +565,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[28]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -550,6 +573,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[29]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -557,6 +581,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[30]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
@@ -564,6 +589,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[31]+"</td>\n"
 				+ "  </tr>\n"
 				+ "</table>\n"
 				+ "\n"
@@ -572,7 +598,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printFourVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
+	private void printFourVars(String[] vals, String[] ops, boolean[] finalBools, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
 				+ "<head>\n"
@@ -611,96 +637,112 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[0]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[1]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[2]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[3]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[4]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[5]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[6]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[7]+"</td>\n"
 				+ "  </tr>\n"	
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[8]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[9]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[10]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[11]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[12]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[13]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[14]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[15]+"</td>\n"
 				+ "  </tr>\n"					
 				+ "</table>\n"
 				+ "\n"
@@ -709,7 +751,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printThreeVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
+	private void printThreeVars(String[] vals, String[] ops, boolean[] finalBools, HttpServletResponse response) throws IOException {
 
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
@@ -747,41 +789,49 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[0]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[1]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[2]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[3]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[4]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[5]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[6]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[7]+"</td>\n"
 				+ "  </tr>\n"				
 				+ "</table>\n"
 				+ "\n"
@@ -790,7 +840,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private Boolean[] calculateBooleans(int varNums, String[] v1, String[] ops) {
+	private boolean[] calculateBooleans(int varNums, String[] v1, String[] ops) {
 
 		ArrayList<Boolean> bools = new ArrayList<Boolean>();
 		boolean answer = false;
@@ -801,7 +851,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		{
 
 			boolean [] boo = {true,true};
-			for(int i = 0; i<16;i++)
+			for(int i = 0; i<4;i++)
 			{
 				
 				c=0;
@@ -844,23 +894,26 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				}
 				if (i%1==0)
 				{
-					boo[3]=!boo[3];
+					boo[1]=!boo[1];
 				}
 				if (i%2==0)
 				{
-					boo[2]=!boo[2];
+					boo[0]=!boo[0];
 				}
 
 				bools.add(answer);
 			}
-			Object answers[]=bools.toArray();
-			return (Boolean[]) answers;
+			boolean []answers = new boolean[bools.size()];
+			for (int i=0;i<bools.size();i++)
+			{
+				answers[i]=bools.get(i);
+			}			return  answers;
 		}
 		if (varNums ==3)
 		{
 
 			boolean [] boo = {true,true,true};
-			for(int i = 0; i<16;i++)
+			for(int i = 0; i<8;i++)
 			{
 				
 				c=0;
@@ -903,21 +956,25 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				}
 				if (i%1==0)
 				{
-					boo[3]=!boo[3];
+					boo[2]=!boo[2];
 				}
 				if (i%2==0)
 				{
-					boo[2]=!boo[2];
+					boo[1]=!boo[1];
 				}
 				if (i%4==0)
 				{
-					boo[1]=!boo[1];
+					boo[0]=!boo[0];
 				}
 				
 				bools.add(answer);
 			}
-			Object answers[]=bools.toArray();
-			return (Boolean[]) answers;
+			boolean []answers = new boolean[bools.size()];
+			for (int i=0;i<bools.size();i++)
+			{
+				answers[i]=bools.get(i);
+			}
+			return  answers;
 		}
 		if (varNums ==4)
 		{
@@ -982,14 +1039,18 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				}
 				bools.add(answer);
 			}
-			Object answers[]=bools.toArray();
-			return (Boolean[]) answers;
+			boolean []answers = new boolean[bools.size()];
+			for (int i=0;i<bools.size();i++)
+			{
+				answers[i]=bools.get(i);
+			}
+			return answers;
 		}
 		if (varNums ==5)
 		{
 
 			boolean [] boo = {true,true,true,true,true};
-			for(int i = 0; i<16;i++)
+			for(int i = 0; i<32;i++)
 			{
 				
 				c=0;
@@ -1052,8 +1113,12 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				}
 				bools.add(answer);
 			}
-			Object answers[]=bools.toArray();
-			return (Boolean[]) answers;
+			boolean []answers = new boolean[bools.size()];
+			for (int i=0;i<bools.size();i++)
+			{
+				answers[i]=bools.get(i);
+			}
+			return  answers;
 		}
 		return null;
 		
@@ -1080,12 +1145,9 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "tr:nth-child(even) {\n"
 				+ "  background-color: #dddddd;\n"
 				+ "}\n"
-				+ "tr:nth-child(odd) {\n"
-				+ "  background-color: #FFFFFF;\n"
-				+ "}\n"
 				+ "</style>\n"
 				+ "</head>\n"
-				+ "<body style=\"background-color:#021d3b;\">\n"
+				+ "<body>\n"
 				+ "\n"
 				+ "<h2>Logical Predicate Table</h2>\n"
 				+ "\n"
@@ -1108,7 +1170,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printTwoVars(String[] vals,String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException
+	private void printTwoVars(String[] vals,String[] ops, boolean[] finalBools, HttpServletResponse response) throws IOException
 	{
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
@@ -1144,18 +1206,22 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[0]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>T</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[1]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>T</td>\n"
+				+ "    <td>"+finalBools[2]+"</td>\n"
 				+ "  </tr>\n"
 				+ "  <tr>\n"
 				+ "    <td>F</td>\n"
 				+ "    <td>F</td>\n"
+				+ "    <td>"+finalBools[3]+"</td>\n"
 				+ "  </tr>\n"
 				+ "</table>\n"
 				+ "\n"
