@@ -4,6 +4,7 @@ import javax.servlet.http.*; // servlet library
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -254,7 +255,9 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"\n" + 
 				"\n" + 
 				"\n" + 
-				"\n" + 
+				"\n" +
+				"<p>To calculate a truth table for a logical predicate, please enter up to 5 variables below.</p>"
+				+
 				"  <form class=\"form\" name=\"form1\" method=\"post\" >\n" + 
 				"\n" + 
 				"\n" + 
@@ -337,17 +340,17 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 		else if (varNums == 2)
 		{
-			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printTwoVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 3)
 		{
-			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printThreeVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 4)
 		{
-			String[] finalBools = calculateBooleans(varNums, v1,val1);
+			Boolean[] finalBools = calculateBooleans(varNums, v1,val1);
 			printFourVars(v1,val1,finalBools,response);
 		}
 		else if (varNums == 5)
@@ -762,7 +765,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printThreeVars(String[] vals, String[] ops, String[] finalBools, HttpServletResponse response) throws IOException {
+	private void printThreeVars(String[] vals, String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException {
 
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
@@ -843,41 +846,273 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private String[] calculateBooleans(int varNums, String[] v1, String[] val1) {
-		int a = 1;
-		int b = 1;
-		int c = 1;
-		int d = 1;
-		int e = 1;
+	private Boolean[] calculateBooleans(int varNums, String[] v1, String[] ops) {
 
-		if(varNums == 1)
+		ArrayList<Boolean> bools = new ArrayList<Boolean>();
+		boolean answer = false;
+
+
+		int c;
+		if (varNums ==2)
 		{
-			String[] ans= new String[2];
-			ans[0] = "T";
-			ans[1] = "F";
-		}
-		else if(varNums == 2 )
-		{
-			for(int i = 0; i < 2; i++)
+
+			boolean [] boo = {true,true};
+			for(int i = 0; i<16;i++)
 			{
 				
+				c=0;
+				while (c<ops.length)
+				{
+
+					if (c==0)
+					{
+						if (ops[0] == "and" || ops[0]=="AMPH")
+						{
+							answer = boo[0] && boo[1];
+						}
+						else if (ops[0] == "or" || ops[0]=="bitOr")
+						{
+							answer = boo[0] || boo[1];
+						}
+						else if (ops[0] == "xor" || ops[0]=="carrot")
+						{
+							answer = boo[0] ^ boo[1];
+						}
+						
+
+					}
+					else
+					{
+						if (ops[c] == "and" || ops[c]=="AMPH")
+						{
+							answer = answer && boo[c+1];
+						}
+						else if (ops[c] == "or" || ops[c]=="bitOr")
+						{
+							answer = answer || boo[c+1];
+						}
+						else if (ops[c] == "xor" || ops[c]=="carrot")
+						{
+							answer = answer ^ boo[c+1];
+						}
+					}
+					c++;
+				}
+				if (i%1==0)
+				{
+					boo[3]=!boo[3];
+				}
+				if (i%2==0)
+				{
+					boo[2]=!boo[2];
+				}
+
+				bools.add(answer);
 			}
-			
-			
+			Object answers[]=bools.toArray();
+			return (Boolean[]) answers;
 		}
-		else if(varNums == 3 )
+		if (varNums ==3)
 		{
-			
+
+			boolean [] boo = {true,true,true};
+			for(int i = 0; i<16;i++)
+			{
+				
+				c=0;
+				while (c<ops.length)
+				{
+
+					if (c==0)
+					{
+						if (ops[0] == "and" || ops[0]=="AMPH")
+						{
+							answer = boo[0] && boo[1];
+						}
+						else if (ops[0] == "or" || ops[0]=="bitOr")
+						{
+							answer = boo[0] || boo[1];
+						}
+						else if (ops[0] == "xor" || ops[0]=="carrot")
+						{
+							answer = boo[0] ^ boo[1];
+						}
+						
+
+					}
+					else
+					{
+						if (ops[c] == "and" || ops[c]=="AMPH")
+						{
+							answer = answer && boo[c+1];
+						}
+						else if (ops[c] == "or" || ops[c]=="bitOr")
+						{
+							answer = answer || boo[c+1];
+						}
+						else if (ops[c] == "xor" || ops[c]=="carrot")
+						{
+							answer = answer ^ boo[c+1];
+						}
+					}
+					c++;
+				}
+				if (i%1==0)
+				{
+					boo[3]=!boo[3];
+				}
+				if (i%2==0)
+				{
+					boo[2]=!boo[2];
+				}
+				if (i%4==0)
+				{
+					boo[1]=!boo[1];
+				}
+				
+				bools.add(answer);
+			}
+			Object answers[]=bools.toArray();
+			return (Boolean[]) answers;
 		}
-		else if(varNums == 4 )
+		if (varNums ==4)
 		{
-			
+
+			boolean [] boo = {true,true,true,true};
+			for(int i = 0; i<16;i++)
+			{
+				
+				c=0;
+				while (c<ops.length)
+				{
+
+					if (c==0)
+					{
+						if (ops[0] == "and" || ops[0]=="AMPH")
+						{
+							answer = boo[0] && boo[1];
+						}
+						else if (ops[0] == "or" || ops[0]=="bitOr")
+						{
+							answer = boo[0] || boo[1];
+						}
+						else if (ops[0] == "xor" || ops[0]=="carrot")
+						{
+							answer = boo[0] ^ boo[1];
+						}
+						
+
+					}
+					else
+					{
+						if (ops[c] == "and" || ops[c]=="AMPH")
+						{
+							answer = answer && boo[c+1];
+						}
+						else if (ops[c] == "or" || ops[c]=="bitOr")
+						{
+							answer = answer || boo[c+1];
+						}
+						else if (ops[c] == "xor" || ops[c]=="carrot")
+						{
+							answer = answer ^ boo[c+1];
+						}
+					}
+					c++;
+				}
+				if (i%1==0)
+				{
+					boo[3]=!boo[3];
+				}
+				if (i%2==0)
+				{
+					boo[2]=!boo[2];
+				}
+				if (i%4==0)
+				{
+					boo[1]=!boo[1];
+				}
+				if (i%8==0)
+				{
+					boo[0]=!boo[0];
+				}
+				bools.add(answer);
+			}
+			Object answers[]=bools.toArray();
+			return (Boolean[]) answers;
 		}
-		else if(varNums == 5 )
+		if (varNums ==5)
 		{
-			
+
+			boolean [] boo = {true,true,true,true,true};
+			for(int i = 0; i<16;i++)
+			{
+				
+				c=0;
+				while (c<ops.length)
+				{
+
+					if (c==0)
+					{
+						if (ops[0] == "and" || ops[0]=="AMPH")
+						{
+							answer = boo[0] && boo[1];
+						}
+						else if (ops[0] == "or" || ops[0]=="bitOr")
+						{
+							answer = boo[0] || boo[1];
+						}
+						else if (ops[0] == "xor" || ops[0]=="carrot")
+						{
+							answer = boo[0] ^ boo[1];
+						}
+						
+
+					}
+					else
+					{
+						if (ops[c] == "and" || ops[c]=="AMPH")
+						{
+							answer = answer && boo[c+1];
+						}
+						else if (ops[c] == "or" || ops[c]=="bitOr")
+						{
+							answer = answer || boo[c+1];
+						}
+						else if (ops[c] == "xor" || ops[c]=="carrot")
+						{
+							answer = answer ^ boo[c+1];
+						}
+					}
+					c++;
+				}
+				if (i%1==0)
+				{
+					boo[4]=!boo[4];
+				}
+				if (i%2==0)
+				{
+					boo[3]=!boo[3];
+				}
+				if (i%4==0)
+				{
+					boo[2]=!boo[2];
+				}
+				if (i%8==0)
+				{
+					boo[1]=!boo[1];
+				}
+				if (i%16==0)
+				{
+					boo[0]=!boo[0];
+				}
+				bools.add(answer);
+			}
+			Object answers[]=bools.toArray();
+			return (Boolean[]) answers;
 		}
 		return null;
+		
 	}
 
 	private void printOneVar(String[] vals, HttpServletResponse response) throws IOException
@@ -929,7 +1164,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				+ "");
 	}
 
-	private void printTwoVars(String[] vals,String[] ops, String[] finalBools, HttpServletResponse response) throws IOException
+	private void printTwoVars(String[] vals,String[] ops, Boolean[] finalBools, HttpServletResponse response) throws IOException
 	{
 		PrintWriter out = response.getWriter();
 		out.println("<html>\n"
