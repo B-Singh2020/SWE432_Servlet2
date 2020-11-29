@@ -292,7 +292,16 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 		response.setContentType("text/html");
 			
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
-		out.println("<p>hello</p>" );
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "</head>\n"
+				+ "<body style=\"background-color:#021d3b ; \">\n"
+				+ "\n"
+				+ "\n"
+				+ "</body>\n"
+				+ "</html>\n"
+				+ "");
+		out.close();
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
 		dispatcher.forward(request,response);
