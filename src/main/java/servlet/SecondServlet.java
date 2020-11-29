@@ -36,7 +36,7 @@ public class SecondServlet extends HttpServlet {
 	{
 		String[] val1;
 		val1 = (String[]) request.getAttribute("value1");
-		String[] v1 = (String[])request.getAttribute("value3");
+		String[] v1 = (String[])request.getAttribute("value2");
 
 		
 		//response.setContentType("text/html");
