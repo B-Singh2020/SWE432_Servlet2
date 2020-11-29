@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -292,7 +293,12 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 			
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 		out.println("<p>hello</p>" );
-				
+		try {
+			TimeUnit.SECONDS.sleep(444));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
 		dispatcher.forward(request,response);
 	}
