@@ -293,15 +293,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 			
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 		out.println("<p>hello</p>" );
-		out.close();
 		
-		try {
-			TimeUnit.SECONDS.sleep(4);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		out = response.getWriter();
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
 		dispatcher.forward(request,response);
 	}
