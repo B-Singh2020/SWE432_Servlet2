@@ -189,11 +189,11 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"\n" + 
 				"\n" + 
 				"    function ClickMe() {\n" + 
-				"      alert(\"This is for the 432 Assignment 5\");\n" + 
+				"      alert(\"This is for the 432 Assignment 8\");\n" + 
 				"    }\n" + 
 				"\n" + 
 				"    function ColabSummary() {\n" + 
-				"      alert(\"The entirety of this code was done while on a discord call with each other. We first revamped our entire doGet based on suggestions from Assignment 3. A lot of the creative ideas and implementation came from Bhupinder during this. He figured out the javascript functions as needed in order to get our code functional. Utkarsh contributed as well figuring out other javascript functions or formatting that fit with the overall design plan. We then moved onto doPost. Here, Utkarsh was mostly in charge. He figured out the main logic behind calculating the truth table, and came up with the idea of having a seperate print statement for each number of variables. Bhupinder assisted by checking for errors and making tweaks to get the code running better, as well as debugging it.\");\n" + 
+				"      alert(\"\");\n" + 
 				"    }\n" + 
 				"\n" + 
 				"  </script>\n" + 
