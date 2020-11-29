@@ -15,10 +15,13 @@ import java.util.regex.Pattern;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 // The @WebServletannotation is used to declare a servlet
-//@WebServlet(name = "LPC", urlPatterns = {"/LPC"})
+@WebServlet(name = "Serve", urlPatterns = {"/LPC/Serve"})
 public class SecondServlet extends HttpServlet {
 
-	
+	static String Domain = "swe432-servlet2.herokuapp.com/";
+	static String Path = "/LPC/";
+	static String Servlet = "Serve";
+	static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
