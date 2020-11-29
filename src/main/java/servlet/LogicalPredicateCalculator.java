@@ -292,7 +292,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 	    try
 	    {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/SecondServlet");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
 		dispatcher.forward(request,response);
 	    }
 	    catch(ServletException e)
