@@ -292,7 +292,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 
 	    try
 	    {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("swe432-servlet2.herokuapp.com/Serve");
 		dispatcher.forward(request,response);
 	    }
 	    catch(ServletException e)
