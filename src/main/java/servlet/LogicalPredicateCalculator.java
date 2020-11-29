@@ -193,7 +193,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"    }\n" + 
 				"\n" + 
 				"    function ColabSummary() {\n" + 
-				"      alert(\"\");\n" + 
+				"      alert(\"Utkarsh and Bhupinder met up on discord to discuss the assignment. Bhupinder was in charge of creating the second servlet and moving our doPost into it, while Utkarsh researched by going back to recorded lectures to figure out how to do a forward request. Once the methods were moved into the second servlet, Bhupinder also assisted in researching. Finally, we got it working, and Bhupinder was in charge of sharing the code and submitting the assignment.\");\n" + 
 				"    }\n" + 
 				"\n" + 
 				"  </script>\n" + 
