@@ -290,18 +290,9 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 	    request.setAttribute("value2", v1);
 		response.setContentType("text/html");
 
-	    try
-	    {
+	   
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Serve");
 		dispatcher.forward(request,response);
-	    }
-	    catch(ServletException e)
-	    {
-	    	e.printStackTrace();
-	    }
-		
-		
-
 	}
 
 }  
