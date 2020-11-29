@@ -22,6 +22,15 @@ public class SecondServlet extends HttpServlet {
 	static String Path = "/";
 	static String Servlet = "Serve";
 	static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+	
+	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException
+	{
+		response.setContentType("text/html"); // Tells the web container what we're sending back
+		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
+		out.println("<p>hello</p>" );
+				out.close();
+				}
+	
 	public void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
