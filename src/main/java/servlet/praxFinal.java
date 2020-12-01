@@ -69,6 +69,8 @@ public class praxFinal extends HttpServlet {
 		   out.println(" <br>");
 		   out.println(" <br>");
 		   out.println(" <input type=\"submit\" value=\"" + "Concat" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\" value=\"" + "Separate" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\" value=\"" + "Reverse" + "\" name=\"Operation\">");
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
