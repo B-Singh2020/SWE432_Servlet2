@@ -42,15 +42,15 @@ public class praxFinal extends HttpServlet {
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>Value A:");
-		   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + 0 + "\" size=5>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + 0 + "\" size=5>");
 		   out.println("  </tr>");
 		   out.println("  <tr>");
 		   out.println("   <td>Value B:");
-		   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + 0 + "\" size=5>");
+		   out.println("   <td><input type=\"text\" name=\"SS\" value=\"" + 0 + "\" size=5>");
 		   out.println("  </tr>");
 		   out.println("  <tr>");
 		   out.println("   <td>Value C:");
-		   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + 0 + "\" size=6>");
+		   out.println("   <td><input type=\"text\" name=\"TS\" value=\"" + 0 + "\" size=6>");
 		   out.println("  </tr>");
 		   out.println("  <tr>");
 		   out.println("   <td>Result:");
@@ -81,6 +81,28 @@ public class praxFinal extends HttpServlet {
 		
 	}
 	
+	@Override
+	public void doPost (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		String[] val1;
+		val1 = request.getParameterValues("ops1");
+		String[] v1 = request.getParameterValues("v1");
+
+		String s1 = "";
+		String s2 = "";
+		String s3 = "";
+		String r = "";
+		
+		s1 = request.getParameter("FS");
+		s2 = request.getParameter("SS");
+		s3 = request.getParameter("TS");
+	    r = s1 + s2 + s3;
+		response.setContentType("text/html"); // Tells the web container what we're sending back
+		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
+			out.println("<p>" + r + "</p>");
+		
+	}
 	
 	
 
