@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 // The @WebServletannotation is used to declare a servlet
 @WebServlet(name = "prax", urlPatterns = {"/prax"})
 
-public class praxFinal {
+public class praxFinal extends HttpServlet {
 	
 	static String Domain = "swe432-servlet2.herokuapp.com/";
 	static String Path = "/";
