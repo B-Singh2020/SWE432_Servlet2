@@ -103,7 +103,24 @@ public class praxFinal extends HttpServlet {
 	    	s2 = s2 + ".";
 	    	s3 = s3 + ".";
 	    }
-		
+	    if(operation.equals("Reverse"))
+	    {
+	    	 StringBuilder input1 = new StringBuilder();
+	    	 input1.append(s1);
+	    	 input1.reverse();
+	    	 s1 = input1.toString();
+	    	 
+	    	 StringBuilder input2 = new StringBuilder();
+	    	 input2.append(s2);
+	    	 input2.reverse();
+	    	 s2 = input2.toString();
+	    	 
+	    	 StringBuilder input3 = new StringBuilder();
+	    	 
+	    	 input3.append(s3);
+	    	 input3.reverse();
+	    	 s3 = input3.toString();
+	    }
 		r = s1 + s2 + s3;
 	    
 	    
