@@ -58,7 +58,7 @@ public class praxFinal extends HttpServlet {
 		   out.println("  </tr>");
 		   out.println("  <tr>");
 		   out.println("   <td>Order:");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "ABC" + "\"> ABC </input>");
+		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "ABC" + "\"checked> ABC </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "ACB" + "\"> ACB </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "BAC" + "\"> BAC </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "BCA" + "\"> BCA </input>");
