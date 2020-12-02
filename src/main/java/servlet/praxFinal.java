@@ -93,7 +93,7 @@ public class praxFinal extends HttpServlet {
 		String s2 = "";
 		String s3 = "";
 		String r = "";
-		
+		String ord = request.getParameter("order");
 		s1 = request.getParameter("FS");
 		s2 = request.getParameter("SS");
 		s3 = request.getParameter("TS");
@@ -110,6 +110,7 @@ public class praxFinal extends HttpServlet {
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 			out.println("<p>" + r + "</p>");
+			out.println("<p>" + ord + "</p>");
 		
 	}
 	
