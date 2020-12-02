@@ -148,7 +148,6 @@ public class praxFinal extends HttpServlet {
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 			out.println("<p>" + r + "</p>");
-			out.println("<p>" + ord + "</p>");
 		
 	}
 	
