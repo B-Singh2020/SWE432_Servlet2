@@ -88,7 +88,7 @@ public class praxFinal extends HttpServlet {
 		String[] val1;
 		val1 = request.getParameterValues("ops1");
 		String[] v1 = request.getParameterValues("v1");
-
+		String operation = request.getParameter("Operation");
 		String s1 = "";
 		String s2 = "";
 		String s3 = "";
@@ -97,7 +97,16 @@ public class praxFinal extends HttpServlet {
 		s1 = request.getParameter("FS");
 		s2 = request.getParameter("SS");
 		s3 = request.getParameter("TS");
-	    r = s1 + s2 + s3;
+	    if(operation.equals("Separate"))
+	    {
+	    	s1 = s1 + ".";
+	    	s2 = s2 + ".";
+	    	s3 = s3 + ".";
+	    }
+		
+		r = s1 + s2 + s3;
+	    
+	    
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 			out.println("<p>" + r + "</p>");
