@@ -192,16 +192,14 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"      alert(\"This is for the 432 Assignment 8\");\n" + 
 				"    }\n" + 
 				"\n" + 
-				"    function ColabSummary() {\n" + 
-				"      alert(\"Utkarsh and Bhupinder met up on discord to discuss the assignment. Bhupinder was in charge of creating the second servlet and moving our doPost into it, while Utkarsh researched by going back to recorded lectures to figure out how to do a forward request. Once the methods were moved into the second servlet, Bhupinder also assisted in researching. Finally, we got it working, and Bhupinder was in charge of sharing the code and submitting the assignment.\");\n" + 
-				"    }\n" + 
+				
 				"\n" + 
 				"  </script>\n" + 
 				"</head>\n" + 
 				"\n" + 
 				"<body style=\"background-color:#021d3b ; text-decoration: none; text-align: center;\">\n" + 
 				"  <h1 style=\"font-family:Arial; color:white;\"> SWE 432 Logical Predicate Creator</h1>\n" + 
-				"  <p style=\"font-weight: bold; text-decoration:underline; color: white\"> By: Bhupinder Singh &amp; Utkarsh Agarwal </p>\n" + 
+				"  <p style=\"font-weight: bold; text-decoration:underline; color: white\"> By: Bhupinder Singh  </p>\n" + 
 				"\n" + 
 				"\n" + 
 				"\n" + 
@@ -266,7 +264,7 @@ public class LogicalPredicateCalculator extends HttpServlet // Inheriting from H
 				"    <p class=\"error-text\" id=\"varErrorMessage\"> </p>\n" + 
 				      "<p>&nbsp;</p>" + 
 				"    <input type=\"submit\" id=\"submit\"  disabled name=\"Inputted\">\n" + 
-				"<button type=\"button\" class=\"btn btn-primary\" onclick=\"ColabSummary()\"> Collab Summary</button>"	+
+				
 				"  </form>\n" + 
 				"\n" + 
 				"\n" + 
