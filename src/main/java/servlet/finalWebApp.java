@@ -54,7 +54,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>List Items:");
-		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=40>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=30>");
 		   out.println("  </tr>");
 		   out.println(" <br>");
 		   		 
@@ -62,13 +62,11 @@ public class finalWebApp extends HttpServlet {
 		   out.println("   <td>Order:");
 		   out.println("   <td><input type=\"radio\" name=\"order\"  value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
-		   
-		  
 		   out.println("  </tr>");
 		   out.println(" </table>");
 		   out.println(" <br>");
 		   out.println(" <br>");
-		   out.println(" <input type=\"submit\" style=\"margin:15px;\" value=\"" + "Sort" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\"  value=\"" + "Sort" + "\" name=\"Operation\">");
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
