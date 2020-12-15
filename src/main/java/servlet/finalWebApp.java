@@ -54,7 +54,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>List Items:");
-		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=30>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=40>");
 		   out.println("  </tr>");
 		   out.println(" <br>");
 		   		 
