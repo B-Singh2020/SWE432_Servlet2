@@ -54,13 +54,13 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>List Items:");
-		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=50>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=40>");
 		   out.println("  </tr>");
 		   out.println(" <br>");
-		   out.println(" <br>");		 
+		   		 
 		   out.println("  <tr>");
 		   out.println("   <td>Order:");
-		   out.println("   <td><input type=\"radio\" name=\"order\" style=\"margin:50px;\" value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
+		   out.println("   <td><input type=\"radio\" name=\"order\" style=\"margin:5px;\" value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
 		   
 		  
