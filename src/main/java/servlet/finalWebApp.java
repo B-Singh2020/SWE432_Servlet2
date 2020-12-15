@@ -32,7 +32,15 @@ public class finalWebApp extends HttpServlet {
 	{
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
+		out.println("<style>");
+		out.println(".content {");
+	    out.println("max-width: 500px;");
+		out.println("margin: auto;");
+		out.println("}");
+		out.println("</style>");
+		
 		 out.println("<body>");
+		 out.println("<div class=\"content\">");
 		   out.println("<p>");
 		   out.println("String List Sorter");
 		   out.println("</p>");
@@ -60,6 +68,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
+		   out.println("</div>");
 		   out.println("</body>");
 		
 		
