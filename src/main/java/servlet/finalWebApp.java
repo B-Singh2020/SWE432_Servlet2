@@ -60,7 +60,7 @@ public class finalWebApp extends HttpServlet {
 		   		 
 		   out.println("  <tr>");
 		   out.println("   <td>Order:");
-		   out.println("   <td><input type=\"radio\" name=\"order\" style=\"margin:5px;\" value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
+		   out.println("   <td><input type=\"radio\" name=\"order\"  value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
 		   
 		  
@@ -68,7 +68,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" </table>");
 		   out.println(" <br>");
 		   out.println(" <br>");
-		   out.println(" <input type=\"submit\" value=\"" + "Sort" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\" value=\" style=\"margin:15px;\"" + "Sort" + "\" name=\"Operation\">");
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
