@@ -84,7 +84,7 @@ public class finalWebApp extends HttpServlet {
 	{
 		String list = request.getParameter("FS");
 		String operation = request.getParameter("Operation");
-		String[] splited = list.split(" ");
+		String[] splited = list.split("\\s+");
 		list = splited.toString();
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
