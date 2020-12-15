@@ -68,7 +68,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" </table>");
 		   out.println(" <br>");
 		   out.println(" <br>");
-		   out.println(" <input type=\"submit\" value=\" style=\"margin:15px;\"" + "Sort" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\" style=\"margin:15px;\" value=\"" + "Sort" + "\" name=\"Operation\">");
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
