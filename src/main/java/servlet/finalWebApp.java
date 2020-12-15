@@ -54,7 +54,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>List Items:");
-		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=40>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=30>");
 		   out.println("  </tr>");
 		   out.println(" <br>");
 		   		 
@@ -78,6 +78,18 @@ public class finalWebApp extends HttpServlet {
 		
 	}
 	
-	
+	@Override
+	public void doPost (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		String list = request.getParameter("FS");
+		String operation = request.getParameter("Operation");
+		
+		response.setContentType("text/html"); // Tells the web container what we're sending back
+		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
+			out.println("<p>" + list + "</p>");
+		
+	}
+
 
 }
