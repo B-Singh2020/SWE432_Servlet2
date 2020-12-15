@@ -41,33 +41,22 @@ public class finalWebApp extends HttpServlet {
 		   out.println("");
 		   out.println(" <table>");
 		   out.println("  <tr>");
-		   out.println("   <td>Value A:");
+		   out.println("   <td>List Items:");
 		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + 0 + "\" size=5>");
 		   out.println("  </tr>");
 		   out.println("  <tr>");
-		   out.println("   <td>Value B:");
-		   out.println("   <td><input type=\"text\" name=\"SS\" value=\"" + 0 + "\" size=5>");
-		   out.println("  </tr>");
-		   out.println("  <tr>");
-		   out.println("   <td>Value C:");
-		   out.println("   <td><input type=\"text\" name=\"TS\" value=\"" + 0 + "\" size=6>");
-		   out.println("  </tr>");
-		  
+		 
 		   out.println("  <tr>");
 		   out.println("   <td>Order:");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "ABC" + "\"checked> ABC </input>");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "ACB" + "\"> ACB </input>");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "BAC" + "\"> BAC </input>");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "BCA" + "\"> BCA </input>");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "CAB" + "\"> CAB </input>");
-		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "CBA" + "\"> CBA </input>");
+		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
+		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
+		   
+		  
 		   out.println("  </tr>");
 		   out.println(" </table>");
 		   out.println(" <br>");
 		   out.println(" <br>");
-		   out.println(" <input type=\"submit\" value=\"" + "Concat" + "\" name=\"Operation\">");
-		   out.println(" <input type=\"submit\" value=\"" + "Separate" + "\" name=\"Operation\">");
-		   out.println(" <input type=\"submit\" value=\"" + "Reverse" + "\" name=\"Operation\">");
+		   out.println(" <input type=\"submit\" value=\"" + "Sort" + "\" name=\"Operation\">");
 		   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
 		   out.println("</form>");
 		   out.println("");
