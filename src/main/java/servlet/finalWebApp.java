@@ -33,6 +33,9 @@ public class finalWebApp extends HttpServlet {
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 		out.println("<style>");
+		out.println("h1 {");
+		out.println("text-align: center;");
+		out.println("}");
 		out.println(".content {");
 	    out.println("max-width: 500px;");
 		out.println("margin: auto;");
