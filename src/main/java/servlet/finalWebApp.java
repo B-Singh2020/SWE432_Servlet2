@@ -41,16 +41,16 @@ public class finalWebApp extends HttpServlet {
 		
 		 out.println("<body>");
 		 out.println("<div class=\"content\">");
-		   out.println("<p>");
+		   out.println("<h1>");
 		   out.println("String List Sorter");
-		   out.println("</p>");
+		   out.println("</h1>");
 		   out.print  ("<form method=\"post\"");
 		   out.println(" action=\"/" + Servlet + "\">");
 		   out.println("");
 		   out.println(" <table>");
 		   out.println("  <tr>");
 		   out.println("   <td>List Items:");
-		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=5>");
+		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=30>");
 		   out.println("  </tr>");
 		   out.println("  <tr>");
 		 
