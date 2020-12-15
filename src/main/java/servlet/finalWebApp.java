@@ -43,10 +43,11 @@ public class finalWebApp extends HttpServlet {
 		out.println("</style>");
 		
 		 out.println("<body>");
-		 out.println("<div class=\"content\">");
+		 
 		   out.println("<h1>");
 		   out.println("String List Sorter");
 		   out.println("</h1>");
+		   out.println("<div class=\"content\">");
 		   out.print  ("<form method=\"post\"");
 		   out.println(" action=\"/" + Servlet + "\">");
 		   out.println("");
