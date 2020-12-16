@@ -90,7 +90,7 @@ public class finalWebApp extends HttpServlet {
 		ArrayList<String> list0 = new ArrayList<>(Arrays.asList(splited));
 		ArrayList<String> list1 = new ArrayList<>();
 		
-		for(int i = 0; i < list1.size(); i++)
+		for(int i = 0; i < list0.size(); i++)
 		{
 			if( list0.get(i).equals("onLoad") ||list0.get(i).contains("<") || list0.get(i).contains(">") || 
 					list0.get(i).contains("=") || list0.get(i).contains("(") || list0.get(i).contains(")") 
