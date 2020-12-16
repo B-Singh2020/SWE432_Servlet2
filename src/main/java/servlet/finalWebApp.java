@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -85,7 +86,11 @@ public class finalWebApp extends HttpServlet {
 		String list = request.getParameter("FS");
 		String operation = request.getParameter("Operation");
 		String[] splited = list.split(" ");
-		list = Arrays.toString(splited);
+		ArrayList<String> list2 = new ArrayList<String>((ArrayList<String>)Arrays.asList(splited));
+			
+		Collections.reverse(list2);
+		list = list2.toString();
+		//list = Arrays.toString(splited);
 		response.setContentType("text/html"); // Tells the web container what we're sending back
 		PrintWriter out = response.getWriter(); // Make it appear as if we're "writing" to the browser window
 			out.println("<p>" + list + "</p>");
