@@ -90,7 +90,7 @@ public class finalWebApp extends HttpServlet {
 		ArrayList<String> list1 = new ArrayList<>(Arrays.asList(splited));
 		for(int i = 0; i < list1.size(); i++)
 		{
-			if(list1.get(i).equals("<script>") || list1.get(i).equals("<javascript>") || list1.get(i).equals("onLoad"))
+			if( list1.get(i).equals("onLoad") ||list1.get(i).contains("<") || list1.get(i).contains(">"))
 			{
 			 list1.remove(i);	
 			}
