@@ -43,13 +43,14 @@ public class finalWebApp extends HttpServlet {
 		out.println("margin: auto;");
 		out.println("}");
 		out.println("</style>");
-		
-		 out.println("<body>");
-		 
-		   out.println("<h1>");
+		out.println("<body>");
+		 out.println("<h1>");
 		   out.println("String List Sorter");
 		   out.println("</h1>");
 		   out.println("<div class=\"content\">");
+		   out.println("<p>");
+		   out.println("Enter in multiple strings and separate each string with a space.");
+		   out.println("</p>");
 		   out.print  ("<form method=\"post\"");
 		   out.println(" action=\"/" + Servlet + "\">");
 		   out.println("");
