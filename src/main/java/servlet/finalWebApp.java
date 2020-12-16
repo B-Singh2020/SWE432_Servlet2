@@ -86,7 +86,7 @@ public class finalWebApp extends HttpServlet {
 	{
 		String list = request.getParameter("FS");
 		String ord = request.getParameter("order");
-		String[] splited = list.split(" ");
+		String[] splited = list.split("\\s+");
 		
 			
 		if(ord.equals("Descending Order"))
