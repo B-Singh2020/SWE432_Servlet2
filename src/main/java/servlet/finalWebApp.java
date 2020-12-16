@@ -87,17 +87,24 @@ public class finalWebApp extends HttpServlet {
 		String list = request.getParameter("FS");
 		String ord = request.getParameter("order");
 		String[] splited = list.split("\\s+");
-		
+		List<String> list1 = Arrays.asList(splited);
+		for(int i = 0; i < splited.length; i++)
+		{
+			if(list1.get(i).equals("<script>") || list1.get(i).equals("<javascript>") || list1.get(i).equals("onLoad"))
+			{
+			 list1.remove(i);	
+			}
+		}
 			
 		if(ord.equals("Descending Order"))
 		{	
-			List<String> list2 = Arrays.asList(splited);  
-			Collections.reverse(list2);
-			list = list2.toString();
+			
+			Collections.reverse(list1);
+			list = list1.toString();
 		}
 		else
 		{
-			list = Arrays.toString(splited);
+			list = list1.toString();
 		}
 		
 		response.setContentType("text/html"); // Tells the web container what we're sending back
