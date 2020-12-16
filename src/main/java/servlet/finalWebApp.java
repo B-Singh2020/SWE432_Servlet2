@@ -89,13 +89,14 @@ public class finalWebApp extends HttpServlet {
 		String[] splited = list.split("\\s+");
 		ArrayList<String> list0 = new ArrayList<>(Arrays.asList(splited));
 		ArrayList<String> list1 = new ArrayList<>();
+		
 		for(int i = 0; i < list1.size(); i++)
 		{
-			if( list1.get(i).equals("onLoad") ||list1.get(i).contains("<") || list1.get(i).contains(">") || 
-					list1.get(i).contains("=") || list1.get(i).contains("(") || list1.get(i).contains(")") 
-					|| list1.get(i).contains("/") || list1.get(i).contains("\\"))
+			if( list0.get(i).equals("onLoad") ||list0.get(i).contains("<") || list0.get(i).contains(">") || 
+					list0.get(i).contains("=") || list0.get(i).contains("(") || list0.get(i).contains(")") 
+					|| list0.get(i).contains("/") || list0.get(i).contains("\\"))
 			{
-			 list1.remove(i);	
+			 list0.remove(i);	
 			}
 			else if(!list1.contains(list0.get(i)))
 			{
