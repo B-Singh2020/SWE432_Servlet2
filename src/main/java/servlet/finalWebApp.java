@@ -87,13 +87,21 @@ public class finalWebApp extends HttpServlet {
 		String list = request.getParameter("FS");
 		String ord = request.getParameter("order");
 		String[] splited = list.split("\\s+");
-		ArrayList<String> list1 = new ArrayList<>(Arrays.asList(splited));
+		ArrayList<String> list0 = new ArrayList<>(Arrays.asList(splited));
+		ArrayList<String> list1 = new ArrayList<>();
 		for(int i = 0; i < list1.size(); i++)
 		{
-			if( list1.get(i).equals("onLoad") ||list1.get(i).contains("<") || list1.get(i).contains(">"))
+			if( list1.get(i).equals("onLoad") ||list1.get(i).contains("<") || list1.get(i).contains(">") || 
+					list1.get(i).contains("=") || list1.get(i).contains("(") || list1.get(i).contains(")") 
+					|| list1.get(i).contains("/") || list1.get(i).contains("\\"))
 			{
 			 list1.remove(i);	
 			}
+			else if(!list1.contains(list0.get(i)))
+			{
+				list1.add(list0.get(i));
+			}
+			
 		}
 			
 		if(ord.equals("Descending Order"))
