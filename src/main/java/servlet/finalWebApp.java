@@ -57,6 +57,9 @@ public class finalWebApp extends HttpServlet {
 		   out.println("<p>");
 		   out.println("( onLoad, /, (, ) , \\, < , >, = )");
 		   out.println("</p>");
+		   out.println("<p>");
+		   out.println("Sorting will be done based on order entered into input");
+		   out.println("</p>");
 		   out.print  ("<form method=\"post\"");
 		   out.println(" action=\"/" + Servlet + "\">");
 		   out.println("");
@@ -68,7 +71,7 @@ public class finalWebApp extends HttpServlet {
 		   out.println(" <br>");
 		   		 
 		   out.println("  <tr>");
-		   out.println("   <td>Order (Based on order enter into input):");
+		   out.println("   <td>Order:");
 		   out.println("   <td><input type=\"radio\" name=\"order\"  value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
 		   out.println("  </tr>");
