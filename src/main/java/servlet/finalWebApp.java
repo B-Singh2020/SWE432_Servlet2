@@ -50,7 +50,11 @@ public class finalWebApp extends HttpServlet {
 		   out.println("<div class=\"content\">");
 		   out.println("<p>");
 		   out.println("Enter in multiple strings and separate each string with a space");
+		   out.println("</p>");
+		   out.println("<p>");
 		   out.println("Invalid strings and characters will be remove from sorting");
+		   out.println("</p>");
+		   out.println("<p>");
 		   out.println("( onLoad, /, (, ) , \\, < , >, = )");
 		   out.println("</p>");
 		   out.print  ("<form method=\"post\"");
@@ -62,9 +66,10 @@ public class finalWebApp extends HttpServlet {
 		   out.println("   <td><input type=\"text\" name=\"FS\" value=\"" + "" + "\" size=30>");
 		   out.println("  </tr>");
 		   out.println(" <br>");
-		   		 
 		   out.println("  <tr>");
 		   out.println("   <td>Order (Based on order enter into input):");
+		   out.println("  </tr>");
+		   out.println("  <tr>");
 		   out.println("   <td><input type=\"radio\" name=\"order\"  value=\"" + "Ascending Order" + "\"checked> Ascending Order </input>");
 		   out.println("   <td><input type=\"radio\" name=\"order\" value=\"" + "Descending Order" + "\"> Descending Order </input>");
 		   out.println("  </tr>");
