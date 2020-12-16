@@ -92,17 +92,22 @@ public class finalWebApp extends HttpServlet {
 		
 		for(int i = 0; i < list0.size(); i++)
 		{
-			if( list0.get(i).equals("onLoad") ||list0.get(i).contains("<") || list0.get(i).contains(">") || 
-					list0.get(i).contains("=") || list0.get(i).contains("(") || list0.get(i).contains(")") 
-					|| list0.get(i).contains("/") || list0.get(i).contains("\\"))
-			{
-			 list0.remove(i);	
-			}
-			else if(!list1.contains(list0.get(i)))
+			
+			 if(!list1.contains(list0.get(i)))
 			{
 				list1.add(list0.get(i));
 			}
 			
+		}
+		
+		for(int i = 0; i < list1.size(); i ++)
+		{
+			if( list1.get(i).equals("onLoad") ||list1.get(i).contains("<") || list1.get(i).contains(">") || 
+					list1.get(i).contains("=") || list1.get(i).contains("(") || list1.get(i).contains(")") 
+					|| list1.get(i).contains("/") || list1.get(i).contains("\\"))
+			{
+			 list1.remove(i);	
+			}
 		}
 			
 		if(ord.equals("Descending Order"))
