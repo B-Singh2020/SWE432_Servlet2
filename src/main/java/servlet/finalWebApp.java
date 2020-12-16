@@ -51,6 +51,9 @@ public class finalWebApp extends HttpServlet {
 		   out.println("<p>");
 		   out.println("Enter in multiple strings and separate each string with a space.");
 		   out.println("</p>");
+		   out.println("<p>");
+		   out.println("Invalid strings and characters will be remove from sorting ( onLoad, /, (, ) , \\, < , >, = )");
+		   out.println("</p>");
 		   out.print  ("<form method=\"post\"");
 		   out.println(" action=\"/" + Servlet + "\">");
 		   out.println("");
