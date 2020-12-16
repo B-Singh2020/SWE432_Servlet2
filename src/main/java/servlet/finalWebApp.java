@@ -87,8 +87,8 @@ public class finalWebApp extends HttpServlet {
 		String list = request.getParameter("FS");
 		String ord = request.getParameter("order");
 		String[] splited = list.split("\\s+");
-		List<String> list1 = Arrays.asList(splited);
-		for(int i = 0; i < splited.length; i++)
+		ArrayList<String> list1 = (ArrayList<String>) Arrays.asList(splited);
+		for(int i = 0; i < list1.size(); i++)
 		{
 			if(list1.get(i).equals("<script>") || list1.get(i).equals("<javascript>") || list1.get(i).equals("onLoad"))
 			{
