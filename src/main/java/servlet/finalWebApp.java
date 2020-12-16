@@ -86,8 +86,8 @@ public class finalWebApp extends HttpServlet {
 		String list = request.getParameter("FS");
 		String operation = request.getParameter("Operation");
 		String[] splited = list.split(" ");
-		ArrayList<String> list2 = new ArrayList<String>((ArrayList<String>)Arrays.asList(splited));
-			
+		ArrayList<String> list2 = new ArrayList<String>();
+			list2 = (ArrayList<String>)Arrays.asList(splited);
 		Collections.reverse(list2);
 		list = list2.toString();
 		//list = Arrays.toString(splited);
